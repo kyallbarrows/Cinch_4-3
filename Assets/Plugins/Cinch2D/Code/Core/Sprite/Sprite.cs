@@ -85,7 +85,17 @@ public class Sprite : DisplayObjectContainer {
 		sprite.InternalInitFromImage(texturePath, pixelsPerMeter, CinchOptions.DefaultShader, regPoint.GetValueOrDefault(RegistrationPoint.Center));
 		return sprite;
 	}
+
+    public static Sprite NewFromImage(UnityEngine.Sprite inputSprite, float pixelsPerMeter = 0, RegistrationPoint? regPoint = null)
+    {
+        GameObject go = new GameObject("newSprite");
+        var sprite = go.AddComponent<Sprite>();
+
+        sprite.InternalInitFromImage(inputSprite.texture, pixelsPerMeter, CinchOptions.DefaultShader, regPoint.GetValueOrDefault(RegistrationPoint.Center));
+        return sprite;
+    }
 	
+
 	/// <summary>
 	/// Creates a new Sprite from a portion of the supplied sprite sheet texture.  See http://www.codeandweb.com/what-is-a-sprite-sheet for more on sprite sheets.
 	/// </summary>
@@ -142,14 +152,21 @@ public class Sprite : DisplayObjectContainer {
 
 	private void InternalInitFromImage(string texturePath, float pixelsPerMeter, string shaderType, RegistrationPoint regPoint, Rect? rect = null)
 	{
+		var texture = TextureCache.GetCachedTexture(texturePath);
+        InternalInitFromImage(texture, pixelsPerMeter, shaderType, regPoint, rect);
+    }
+
+    private void InternalInitFromImage(Texture2D texture, float pixelsPerMeter, string shaderType, RegistrationPoint regPoint, Rect? rect = null)
+    {
+        _texture = texture;
+        _textureRect = rect.GetValueOrDefault(new Rect(0f, 0f, (float)_texture.width, (float)_texture.height));
+
 		if (pixelsPerMeter == 0)
 			pixelsPerMeter = CinchOptions.DefaultPixelsPerMeter;
 		
 		this._pixelsPerMeter = pixelsPerMeter;
 		_regPoint = regPoint;
 				
-		_texture = TextureCache.GetCachedTexture(texturePath);
-		_textureRect = rect.GetValueOrDefault(new Rect(0f, 0f, (float)_texture.width, (float)_texture.height));
 
 		//flip the y-axis
 		if (CinchOptions.UseTopLeftSpriteSheetCoordinates)

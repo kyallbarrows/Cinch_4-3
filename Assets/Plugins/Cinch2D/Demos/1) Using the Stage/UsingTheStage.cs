@@ -22,7 +22,8 @@ public class UsingTheStage : Stage {
 		
 		//the origin (0,0 point) is in the middle of the screen.  Anything we add to the stage will show up there by default.
 		//Let's add a strawberry to the screen:
-		var strawberry = Sprite.NewFromImage("Cinch2D/Strawberry");
+        var sprite = Resources.LoadAll<UnityEngine.Sprite>("Cinch2D/Strawberry");
+        var strawberry = Sprite.NewFromImage((UnityEngine.Sprite)(sprite[0]));
 		AddChild(strawberry);
 		
 		//Stage also has Width and Height properties.  These are different from ViewportWidth/Height.  
