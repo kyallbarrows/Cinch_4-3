@@ -69,7 +69,7 @@ public class EventDispatcher : MonoBehaviour {
 	/// <example>
 	/// private void HandleButtonPress(MouseEvent e)
 	/// {
-	/// 	Sprite button = (Sprite)e.CurrentTarget;
+	/// 	CinchSprite button = (CinchSprite)e.CurrentTarget;
 	/// 	Debug.Log("You pressed " + button.Name);
 	/// }
 	/// buttonObj.AddEventListner<MouseEvent>(MouseEvent.MOUSE_DOWN, handleButtonPress);

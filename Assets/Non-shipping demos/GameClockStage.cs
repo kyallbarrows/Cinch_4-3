@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class GameClockStage : Stage {
 
-	private List<Sprite> _joes;
-	private Sprite _joesContainer;
-	private Sprite _play;
-	private Sprite _pause;
+	private List<CinchSprite> _joes;
+	private CinchSprite _joesContainer;
+	private CinchSprite _play;
+	private CinchSprite _pause;
 	
 	// Use this for initialization
 	public override void OnAwake () {
@@ -15,14 +15,14 @@ public class GameClockStage : Stage {
 		CinchOptions.DefaultPixelsPerMeter = 25f;
 		
 		Stage.Instance.TheCamera.backgroundColor = new Color(.2f, .2f, .2f, 1f);
-		_joesContainer = Library.New<Sprite>("Joes Container");
+		_joesContainer = Library.New<CinchSprite>("Joes Container");
 		AddChild(_joesContainer);
 		_joesContainer.X = Stage.Instance.ViewportWidth/2;
 		_joesContainer.Y = Stage.Instance.ViewportHeight/2;
 		_joesContainer.Clock = new GameClock("JoesContainerClock");
 		
-		_play = Sprite.NewFromImage("Play", 100f);
-		_pause = Sprite.NewFromImage("Pause", 100f);
+		_play = CinchSprite.NewFromImage("Play", 100f);
+		_pause = CinchSprite.NewFromImage("Pause", 100f);
 		AddChild(_play);
 		AddChild(_pause);
 		_play.Visible = false;
@@ -32,7 +32,7 @@ public class GameClockStage : Stage {
 		_play.AddEventListener<MouseEvent>(MouseEvent.MOUSE_DOWN, onPlayPress);
 		_pause.AddEventListener<MouseEvent>(MouseEvent.MOUSE_DOWN, onPausePress);
 		
-		_joes = new List<Sprite>();
+		_joes = new List<CinchSprite>();
 		for (var i=0; i < 15; i++)
 		{
 			var joe = CreateJoe();

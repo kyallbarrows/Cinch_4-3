@@ -7,10 +7,10 @@ using System.Collections;
 /// </summary>
 public class UsingClocks : DemoBase {
 	
-	private Sprite _gameplayContainer;
+	private CinchSprite _gameplayContainer;
 	
-	private Sprite _play;
-	private Sprite _pause;
+	private CinchSprite _play;
+	private CinchSprite _pause;
 	
 	
 	public override void OnAwake()
@@ -18,7 +18,7 @@ public class UsingClocks : DemoBase {
 		CreateBackground();
 		
 		//Create a container for "GamePlay" (a bunch of floating berries)
-		_gameplayContainer = Library.New<Sprite>("StrawberriesContainer");
+		_gameplayContainer = Library.New<CinchSprite>("StrawberriesContainer");
 		AddChild(_gameplayContainer);
 		
 		//pausing this Clock will pause all children
@@ -31,14 +31,14 @@ public class UsingClocks : DemoBase {
 		}
 		
 		//Create a button to pause gameplay
-		_pause = Sprite.NewFromImage("Cinch2D/Pause");
+		_pause = CinchSprite.NewFromImage("Cinch2D/Pause");
 		AddChild(_pause);
 		//SetPosition is faster than setting X and Y individually, since X and Y each cause display chain updates
 		_pause.SetPosition(ViewportWidth/2 - _pause.Width, ViewportHeight/2 - _pause.Height);
 		_pause.AddEventListener<MouseEvent>(MouseEvent.MOUSE_DOWN, Pause);		
 
 		//Create a button to start gameplay
-		_play = Sprite.NewFromImage("Cinch2D/Play");
+		_play = CinchSprite.NewFromImage("Cinch2D/Play");
 		AddChild(_play);
 		_play.SetPosition(ViewportWidth/2 - _play.Width, ViewportHeight/2 - _play.Height);
 		_play.AddEventListener<MouseEvent>(MouseEvent.MOUSE_DOWN, Play);

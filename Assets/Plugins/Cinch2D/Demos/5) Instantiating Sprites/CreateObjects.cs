@@ -12,17 +12,17 @@ public class CreateObjects : DemoBase {
 		
 		//4 ways to create Sprites:
 
-		//1: Create empty Sprites with Sprite.NewEmpty() or Library.New<Sprite>()
-		var container = Sprite.NewEmpty("Container");
+		//1: Create empty Sprites with CinchSprite.NewEmpty() or Library.New<CinchSprite>()
+		var container = CinchSprite.NewEmpty("Container");
 		this.AddChild(container);
 		container.AddEventListener<MouseEvent>(MouseEvent.MOUSE_DOWN, DestroyWhateverWasClicked);
 		
-		//2: Create from Texture via Sprite.NewFromImage()
-		var cherries = Sprite.NewFromImage("Cinch2D/Cherries", 256);
+		//2: Create from Texture via CinchSprite.NewFromImage()
+		var cherries = CinchSprite.NewFromImage("Cinch2D/Cherries", 256);
 		container.AddChild(cherries);
 		cherries.X = ViewportWidth/-4;
 		
-		//3: Library.New<Any Sprite Subclass>().  
+		//3: Library.New<Any CinchSprite Subclass>().  
 		//Watermelon is defined in a separate file, and actually contains another way to instantiate a sprite
 		var watermelon = Library.New<Watermelon>("Watermelon");
 		container.AddChild(watermelon);
@@ -45,7 +45,7 @@ public class CreateObjects : DemoBase {
 	
 	private void DestroyWhateverWasClicked(MouseEvent me)
 	{
-		var target = (Sprite)me.Target;
+		var target = (CinchSprite)me.Target;
 		//Whatever you do, DON'T call Destroy(gameObject) or Destroy(some sprite instance).  Instead, use the .Destroy() method
 		target.Destroy();
 	}

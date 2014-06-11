@@ -16,7 +16,7 @@ public class CardsDemo : Stage {
 		{
 			for(var column=0; column<5; column++)
 			{
-				var card = Sprite.NewFromSpriteSheet("Cinch2D/PlayingCards", 
+				var card = CinchSprite.NewFromSpriteSheet("Cinch2D/PlayingCards", 
 					column*CARD_WIDTH, row*CARD_HEIGHT, 
 					CARD_WIDTH, CARD_HEIGHT);
 				AddChild (card);
@@ -33,7 +33,7 @@ public class CardsDemo : Stage {
 	
 	private void OnCardPress(MouseEvent e)
 	{
-		var card = (Sprite)e.Target;
+		var card = (CinchSprite)e.Target;
 		
 		new Tween(card, "ScaleX", 1.5f, .35f, Easing.Cubic.EaseOut);
 		new Tween(card, "ScaleY", 1.5f, .35f, Easing.Cubic.EaseOut);
@@ -44,7 +44,7 @@ public class CardsDemo : Stage {
 
 	private void OnCardRelease(MouseEvent e)
 	{
-		var card = (Sprite)e.Target;
+		var card = (CinchSprite)e.Target;
 		card.StopDrag();
 		
 		new Tween(card, "ScaleX", 1f, .35f, Easing.Cubic.EaseOut);
@@ -53,7 +53,7 @@ public class CardsDemo : Stage {
 
 	private void CreateBackground()
 	{
-		Sprite background = Sprite.NewFromImage("Cinch2D/Background", 100f);
+		CinchSprite background = CinchSprite.NewFromImage("Cinch2D/Background", 100f);
 		background.Width = ViewportWidth;
 		background.Height = ViewportHeight;
 		AddChild(background);

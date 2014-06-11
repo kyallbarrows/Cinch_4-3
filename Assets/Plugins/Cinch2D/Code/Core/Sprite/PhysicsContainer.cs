@@ -7,7 +7,7 @@ using FarseerPhysics.Collision;
 /// A sprite that also contains a Farseer Physics world.
 /// Use .World to access the physics World instance.
 /// </summary>
-public class PhysicsContainer : Sprite {
+public class PhysicsContainer : CinchSprite {
 	
 	private World _world;
 	/// <summary>

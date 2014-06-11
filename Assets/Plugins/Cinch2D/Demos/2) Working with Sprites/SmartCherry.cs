@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SmartCherry : Sprite {
+public class SmartCherry : CinchSprite {
 	
 	//called whenever Awake is called.  
 	//You could actually use Awake(), but you MUST call base.Awake() on the first line, and since we were always forgetting to during the development process, we added this.

@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class AddRemoveTestObject : Sprite
+public class AddRemoveTestObject : CinchSprite
 {
 	public int AddedCount;
 	public int RemovedCount;
@@ -52,7 +52,7 @@ public class TestsStage : DemoStageBase {
 		
 	private void TestAddGetChildMethods()
 	{
-		var parent = Library.New<Sprite>();
+		var parent = Library.New<CinchSprite>();
 		Assert (parent.Stage == null, "parent stage should be null");
 		AddChild(parent);
 		Assert (parent.Stage == this, "parent stage should be this");
@@ -61,7 +61,7 @@ public class TestsStage : DemoStageBase {
 		
 		for (var i=1; i<=10; i++)
 		{
-			var thisChild = Library.New<Sprite>("Child" + i);
+			var thisChild = Library.New<CinchSprite>("Child" + i);
 			parent.AddChild(thisChild);
 		}
 		Assert ((parent.NumChildren == 10), "Parent.NumChildren should return 10, returned " + parent.NumChildren);
@@ -239,10 +239,10 @@ public class TestsStage : DemoStageBase {
 	
 	private void TestEventListeners()
 	{
-		_country = Library.New<Sprite>("Country");
-		_state = Library.New<Sprite>("Stage");
-		_city = Library.New<Sprite>("City");
-		_house = Library.New<Sprite>("House");
+		_country = Library.New<CinchSprite>("Country");
+		_state = Library.New<CinchSprite>("Stage");
+		_city = Library.New<CinchSprite>("City");
+		_house = Library.New<CinchSprite>("House");
 		_country.Name = "Country";
 		_state.Name = "State";
 		_city.Name = "City";
@@ -325,7 +325,7 @@ public class TestsStage : DemoStageBase {
 	}
 	
 	private void StackRecordingEventHandler(MouseEvent e){
-		var currName = ((Sprite)e.CurrentTarget).Name;
+		var currName = ((CinchSprite)e.CurrentTarget).Name;
 		var phase = "AT:";
 		if (e.EventPhase == EventPhase.CAPTURE_PHASE)
 			phase = "CAP:";

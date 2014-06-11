@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Watermelon : Sprite {
+public class Watermelon : CinchSprite {
 
 	public override void OnAwake()
 	{

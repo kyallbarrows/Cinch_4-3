@@ -6,10 +6,10 @@ using System.Linq;
 using FarseerPhysics.Dynamics;
 
 /*! Basically a draggable DisplayObjectContainer, with some setup methods for initinalizing from a texture.  Also, easier to type, so, bonus. */
-public class Sprite : DisplayObjectContainer {
+public class CinchSprite : DisplayObjectContainer {
 	
 	/// <summary>
-	/// The Farseer Physics Body.  If set, and the Sprite is added to a physics container, it will control the position and rotation of the Sprite.
+	/// The Farseer Physics Body.  If set, and the CinchSprite is added to a physics container, it will control the position and rotation of the CinchSprite.
 	/// </summary>
 	public Body PhysicsBody;
 	
@@ -63,33 +63,33 @@ public class Sprite : DisplayObjectContainer {
 	protected RegistrationPoint _regPoint;	
 	
 	/// <summary>
-	/// Creates a new Sprite with the supplied texture.
+	/// Creates a new CinchSprite with the supplied texture.
 	/// </summary>
 	/// <returns>
-	/// The new Sprite.
+	/// The new CinchSprite.
 	/// </returns>
 	/// <param name='texturePath'>
-	/// Texture to be displayed in the Sprite.
+	/// Texture to be displayed in the CinchSprite.
 	/// </param>
 	/// <param name='pixelsPerMeter'>
-	/// Pixels per meter.  Specifying 100 with a 100x100 texture will produce a 1x1 meter Sprite.  You can pass in CinchOptions.DefaultPixelsPerMeter to keep everything the same size.
+	/// Pixels per meter.  Specifying 100 with a 100x100 texture will produce a 1x1 meter CinchSprite.  You can pass in CinchOptions.DefaultPixelsPerMeter to keep everything the same size.
 	/// </param>
 	/// <param name='regPoint'>
 	/// The registration point (center to pivot around).  Defaults to center.  You can use any of the constants defined on the RegistrationPoint struct, new() up one.
 	/// </param>
-	public static Sprite NewFromImage(string texturePath, float pixelsPerMeter = 0, RegistrationPoint? regPoint = null)
+	public static CinchSprite NewFromImage(string texturePath, float pixelsPerMeter = 0, RegistrationPoint? regPoint = null)
 	{
 		GameObject go = new GameObject(texturePath);
-		var sprite = go.AddComponent<Sprite>();
+		var sprite = go.AddComponent<CinchSprite>();
 		
 		sprite.InternalInitFromImage(texturePath, pixelsPerMeter, CinchOptions.DefaultShader, regPoint.GetValueOrDefault(RegistrationPoint.Center));
 		return sprite;
 	}
 
-    public static Sprite NewFromImage(UnityEngine.Sprite inputSprite, float pixelsPerMeter = 0, RegistrationPoint? regPoint = null)
+    public static CinchSprite NewFromImage(UnityEngine.Sprite inputSprite, float pixelsPerMeter = 0, RegistrationPoint? regPoint = null)
     {
         GameObject go = new GameObject("newSprite");
-        var sprite = go.AddComponent<Sprite>();
+        var sprite = go.AddComponent<CinchSprite>();
 
         sprite.InternalInitFromImage(inputSprite.texture, pixelsPerMeter, CinchOptions.DefaultShader, regPoint.GetValueOrDefault(RegistrationPoint.Center));
         return sprite;
@@ -97,13 +97,13 @@ public class Sprite : DisplayObjectContainer {
 	
 
 	/// <summary>
-	/// Creates a new Sprite from a portion of the supplied sprite sheet texture.  See http://www.codeandweb.com/what-is-a-sprite-sheet for more on sprite sheets.
+	/// Creates a new CinchSprite from a portion of the supplied sprite sheet texture.  See http://www.codeandweb.com/what-is-a-sprite-sheet for more on sprite sheets.
 	/// </summary>
 	/// <returns>
-	/// The new Sprite.
+	/// The new CinchSprite.
 	/// </returns>
 	/// <param name='texturePath'>
-	/// Sprite sheet to build Sprite from.
+	/// CinchSprite sheet to build CinchSprite from.
 	/// </param>
 	/// <param name='left'>
 	/// Left side of sprite sheet coordinates, in pixels.
@@ -118,30 +118,30 @@ public class Sprite : DisplayObjectContainer {
 	/// Height of sprite sheet coordinates, in pixels.
 	/// </param>
 	/// <param name='pixelsPerMeter'>
-	/// Pixels per meter.  Specifying 100 with a 100x100 sprite rectangle will produce a 1x1 meter Sprite.  You can pass in CinchOptions.DefaultPixelsPerMeter to keep everything the same size.
+	/// Pixels per meter.  Specifying 100 with a 100x100 sprite rectangle will produce a 1x1 meter CinchSprite.  You can pass in CinchOptions.DefaultPixelsPerMeter to keep everything the same size.
 	/// </param>
 	/// <param name='regPoint'>
 	/// The registration point (center to pivot around).  Defaults to center.  You can use any of the constants defined on the RegistrationPoint struct, new() up one.
 	/// </param>
-	public static Sprite NewFromSpriteSheet(string texturePath, float left, float top, float width, float height, float pixelsPerMeter = 0, RegistrationPoint? regPoint = null)
+	public static CinchSprite NewFromSpriteSheet(string texturePath, float left, float top, float width, float height, float pixelsPerMeter = 0, RegistrationPoint? regPoint = null)
 	{
 		GameObject go = new GameObject(texturePath);
-		var sprite = go.AddComponent<Sprite>();
+		var sprite = go.AddComponent<CinchSprite>();
 		
 		sprite.InternalInitFromImage(texturePath, pixelsPerMeter, CinchOptions.DefaultShader, regPoint.GetValueOrDefault(RegistrationPoint.Center), new Rect(left, top, width, height));
 		return sprite;
 	}
 	
 	/// <summary>
-	/// Creates a new empty Sprite.
+	/// Creates a new empty CinchSprite.
 	/// </summary>
 	/// <returns>
 	/// The new sprite.
 	/// </returns>
-	public static Sprite NewEmpty(string name)
+	public static CinchSprite NewEmpty(string name)
 	{
 		GameObject go = new GameObject(name);
-		var sprite = go.AddComponent<Sprite>();
+		var sprite = go.AddComponent<CinchSprite>();
 		return sprite;
 	}
 

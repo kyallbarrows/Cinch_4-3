@@ -8,13 +8,13 @@ public class Tentacle : Stage {
 		CinchOptions.DefaultPixelsPerMeter = 180;
 		
 		//make a container clip at the lower left corner
-		Sprite lastParent = Library.New<Sprite>("root");
+		CinchSprite lastParent = Library.New<CinchSprite>("root");
 		AddChild(lastParent);
 		lastParent.Rotation = 0f;
 		
 		for (var i=0; i<20; i++)
 		{
-			var newSprite = Sprite.NewFromImage ("Cinch2D/Strawberry");
+			var newSprite = CinchSprite.NewFromImage ("Cinch2D/Strawberry");
 			lastParent.AddChild(newSprite);
 			newSprite.X = .6f;
 			newSprite.Rotation = 12f;
@@ -26,7 +26,7 @@ public class Tentacle : Stage {
 	
 	private void CreateBackground()
 	{
-		Sprite background = Sprite.NewFromImage("Cinch2D/Background", 100f, RegistrationPoint.BottomLeft);
+		CinchSprite background = CinchSprite.NewFromImage("Cinch2D/Background", 100f, RegistrationPoint.BottomLeft);
 		background.Width = ViewportWidth;
 		background.Height = ViewportHeight;
 		AddChild(background);

@@ -1,18 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
-public class TextButton : Sprite {
+public class TextButton : CinchSprite {
 	
-	private Sprite _foreground;
-	private Sprite _background;
+	private CinchSprite _foreground;
+	private CinchSprite _background;
 	private SimpleTextField _text;
 	
 	public override void OnAwake()
 	{
-		_background = Sprite.NewFromSpriteSheet("Cinch2D/ButtonParts", 0, 257, 512, 256, 256);
+		_background = CinchSprite.NewFromSpriteSheet("Cinch2D/ButtonParts", 0, 257, 512, 256, 256);
 		AddChild(_background);
 		
-		_foreground = Sprite.NewFromSpriteSheet("Cinch2D/ButtonParts", 0, 0, 512, 256, 256);
+		_foreground = CinchSprite.NewFromSpriteSheet("Cinch2D/ButtonParts", 0, 0, 512, 256, 256);
 		AddChild(_foreground);
 		
 		_text = SimpleTextField.NewFromString("", "Cinch2D/FjallaOne-Regular", .2f);

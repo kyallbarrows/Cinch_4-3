@@ -4,7 +4,7 @@ using System.Collections;
 public class NineSliceScaling : Stage {
 
 	public override void OnAwake () {
-		var panel = Sprite.NewFromImage("Cinch2D/DialogBackground", 256f);
+		var panel = CinchSprite.NewFromImage("Cinch2D/DialogBackground", 256f);
 		//leave a 20% border around the edge of the panel, that won't scale
 		panel.SetScale9Grid(new Rect(.2f, .2f, .6f, .6f));
 		AddChild(panel);

@@ -22,11 +22,11 @@ public class Physics : DemoBase {
 		_physicsContainer = PhysicsContainer.NewEmpty(Vector2.up * -30f);
 		AddChild(_physicsContainer);
 		
-		var field = Sprite.NewFromImage("Cinch2D/Field", 512);
+		var field = CinchSprite.NewFromImage("Cinch2D/Field", 512);
 		field.Width = ViewportWidth;
 		field.Height = 1f;
 		
-		//create a physics body for the field, same size as the Sprite
+		//create a physics body for the field, same size as the CinchSprite
 		var fieldBody = BodyFactory.CreateRectangle(_physicsContainer.World, field.Width, field.Height, 1);
 		
 		//as soon as we set the fieldBody as field's PhysicsBody, field will take its position and rotation from fieldBody after every frame
@@ -41,7 +41,7 @@ public class Physics : DemoBase {
 		_physicsContainer.AddChild(field);
 		
 		//create a soccer ball to roll around
-		var ball = Sprite.NewFromImage("Cinch2D/SoccerBall", 256);
+		var ball = CinchSprite.NewFromImage("Cinch2D/SoccerBall", 256);
 		_ballBody = BodyFactory.CreateCircle(_physicsContainer.World, .5f, 1f);
 		ball.PhysicsBody = _ballBody;
 		_ballBody.BodyType = BodyType.Dynamic;
@@ -72,8 +72,8 @@ public class Physics : DemoBase {
 		_debugDrawButton.AddEventListener<MouseEvent>(MouseEvent.MOUSE_UP, ToggleDebugDraw);
 	}
 	
-	private Sprite CreatePlayer(){
-		var player = Sprite.NewFromSpriteSheet("Cinch2D/SoccerPlayer", 0, 0, 160, 256, 128);
+	private CinchSprite CreatePlayer(){
+		var player = CinchSprite.NewFromSpriteSheet("Cinch2D/SoccerPlayer", 0, 0, 160, 256, 128);
 		player.PhysicsBody = BodyFactory.CreateRectangle(_physicsContainer.World, 1f, 2f, 1f);
 		player.PhysicsBody.BodyType = BodyType.Static;
 		player.PhysicsBody.IsSensor = true;

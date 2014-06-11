@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class TextButtonThing : Sprite {
+public class TextButtonThing : CinchSprite {
 	
 	private SimpleTextField _tf;
 	

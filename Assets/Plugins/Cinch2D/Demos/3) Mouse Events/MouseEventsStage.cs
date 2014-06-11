@@ -11,7 +11,7 @@ public class MouseEventsStage : DemoBase {
 		CreateBackground();
 		
 		//create a watermelon to listen to.  
-		var watermelon = Sprite.NewFromImage("Cinch2D/Watermelon", 256);
+		var watermelon = CinchSprite.NewFromImage("Cinch2D/Watermelon", 256);
 		AddChild(watermelon);
 		watermelon.Name = "Watermelon";
 		

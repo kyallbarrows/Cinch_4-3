@@ -39,7 +39,7 @@ public class AddRemoveChildStage : DemoStageBase {
 	private void onCardPress(MouseEvent e)
 	{
 		var me = (MouseEvent)e;
-		var target = (Sprite)me.Target;
+		var target = (CinchSprite)me.Target;
 		_container.AddChild(target);
 		target.StartDrag();
 	}
@@ -47,7 +47,7 @@ public class AddRemoveChildStage : DemoStageBase {
 	private void onCardRelease(MouseEvent e)
 	{
 		var me = (MouseEvent)e;
-		var target = (Sprite)me.Target;
+		var target = (CinchSprite)me.Target;
 		target.StopDrag();
 	}
 }

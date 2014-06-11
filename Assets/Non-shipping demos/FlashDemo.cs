@@ -8,7 +8,7 @@ public class FlashDemo : Stage {
 		CreateBackground();
 
 		//make the start button and add it to the stage
-		Sprite startButton = Sprite.NewFromImage("StartButton");
+		CinchSprite startButton = CinchSprite.NewFromImage("StartButton");
 		this.AddChild(startButton);
 		startButton.Width = 3f;
 		startButton.ScaleY = startButton.ScaleX;
@@ -34,7 +34,7 @@ public class FlashDemo : Stage {
 	
 	private void CreateBackground()
 	{
-		Sprite background = Sprite.NewFromImage("Background", 100f, RegistrationPoint.BottomLeft);
+		CinchSprite background = CinchSprite.NewFromImage("Background", 100f, RegistrationPoint.BottomLeft);
 		background.Width = ViewportWidth;
 		background.Height = ViewportHeight;
 		AddChild(background);

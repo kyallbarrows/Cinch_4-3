@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FloatingStrawberry : Sprite {
+public class FloatingStrawberry : CinchSprite {
 
 	private float _velocityX;
 	private float _velocityY;

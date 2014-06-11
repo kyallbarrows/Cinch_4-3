@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Joe : Sprite {
+public class Joe : CinchSprite {
 	public Vector2 FakeVelocity;
 	
 	public override void OnAwake()

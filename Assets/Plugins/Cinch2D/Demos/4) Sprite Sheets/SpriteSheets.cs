@@ -8,13 +8,13 @@ using System.Collections;
 /// </summary>
 public class SpriteSheets : DemoBase {
 	
-	private Sprite _cardsContainer;
+	private CinchSprite _cardsContainer;
 	
 	public override void OnAwake()
 	{
 		CreateBackground();
 		
-		_cardsContainer = Library.New<Sprite>("CardsContainer");
+		_cardsContainer = Library.New<CinchSprite>("CardsContainer");
 		AddChild(_cardsContainer);
 		_cardsContainer.AddEventListener<MouseEvent>(MouseEvent.MOUSE_DOWN, MoveCardToTop);
 		
@@ -31,7 +31,7 @@ public class SpriteSheets : DemoBase {
 				var top = suit * cardHeight;	//move top to bottom 128 px at a time
 				var pixPerMeter = 100f;		
 				
-				var newCard = Sprite.NewFromSpriteSheet("Cinch2D/PlayingCards", left, top, cardWidth, cardHeight, pixPerMeter);
+				var newCard = CinchSprite.NewFromSpriteSheet("Cinch2D/PlayingCards", left, top, cardWidth, cardHeight, pixPerMeter);
 				_cardsContainer.AddChild(newCard);
 				
 				//give the cards random positions and rotations
@@ -44,7 +44,7 @@ public class SpriteSheets : DemoBase {
 	
 	private void MoveCardToTop(MouseEvent e)
 	{
-		var targetCard = (Sprite)e.Target;
+		var targetCard = (CinchSprite)e.Target;
 		
 		//adding something that has already been added will just float it to the top
 		_cardsContainer.AddChild(targetCard);

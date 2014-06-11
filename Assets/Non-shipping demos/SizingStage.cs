@@ -4,9 +4,9 @@ using System.Collections;
 
 public class SizingStage : Stage {
 	
-	private Sprite _sizeChart;
+	private CinchSprite _sizeChart;
 	private DisplayObjectContainer _earthContainer;
-	private Sprite _mars;
+	private CinchSprite _mars;
 	
 	public override void OnAwake()
 	{
@@ -20,7 +20,7 @@ public class SizingStage : Stage {
 		else
 			ViewportHeight = 10f;
 		
-		_sizeChart = Sprite.NewFromImage("SizeChart", 100f, RegistrationPoint.BottomLeft);
+		_sizeChart = CinchSprite.NewFromImage("SizeChart", 100f, RegistrationPoint.BottomLeft);
 		_sizeChart.Name = "SizeChart";
 		_sizeChart.X = ViewportWidth/-2;
 		_sizeChart.Y = ViewportHeight/-2;
@@ -34,14 +34,14 @@ public class SizingStage : Stage {
 		_earthContainer.AddChild(innerContainer);
 		var yetAnotherContainer = Library.New<DisplayObjectContainer>("YetAnotherContainer");
 		innerContainer.AddChild(yetAnotherContainer);
-		var earth = Sprite.NewFromImage("Earth", 158f, RegistrationPoint.Center);
+		var earth = CinchSprite.NewFromImage("Earth", 158f, RegistrationPoint.Center);
 		earth.MouseEnabled = true;
 		earth.Name = "Earth";
 		earth.AddEventListener<MouseEvent>(MouseEvent.MOUSE_DOWN, onEarthPress);
 		yetAnotherContainer.AddChild(earth);
 		
 		//give it a weird pixels-per-meter to make sure it's not an even width in meters
-		_mars = Sprite.NewFromImage("Mars", 212f, RegistrationPoint.BottomLeft);
+		_mars = CinchSprite.NewFromImage("Mars", 212f, RegistrationPoint.BottomLeft);
 		_mars.MouseEnabled = true;
 		_mars.Name = "Mars";
 		_mars.SetPosition(.5f, .5f);
@@ -89,7 +89,7 @@ public class SizingStage : Stage {
 	private void VerifySizingForEmptyParent(){
 		var emptyParent = Library.New<DisplayObjectContainer>("EmptyParent");
 		AddChild(emptyParent);
-		emptyParent.AddChild(Sprite.NewFromImage("Earth", 158f, RegistrationPoint.Center));
+		emptyParent.AddChild(CinchSprite.NewFromImage("Earth", 158f, RegistrationPoint.Center));
 		
 		//should be able to set width/height, scaleX/Y to whatever without any issues
 		emptyParent.Width = 20;

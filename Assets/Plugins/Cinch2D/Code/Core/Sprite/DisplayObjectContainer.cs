@@ -176,7 +176,7 @@ public class DisplayObjectContainer : EventDispatcher {
 		} 
 	}
 	/// <summary>
-	/// Gets or sets a visibility.  Sprite continues to run while invisible.
+	/// Gets or sets a visibility.  CinchSprite continues to run while invisible.
 	/// </summary>
 	/// <value>
 	/// <c>true</c> if visible; otherwise, <c>false</c>.
